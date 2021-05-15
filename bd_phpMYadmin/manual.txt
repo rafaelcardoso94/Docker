@@ -1,0 +1,17 @@
+Criando de forma manual, sendo de forma separada(container)
+
+Primeiro Comando, criação do banco "mysql"
+
+#docker run --name mysql --restart:always -v /home/custom:/etc/mysql/conf.d -v /home/data:/var/lib/mysql 
+-v /etc/localtime:/etc/localtime:ro -e MYSQL_ROOT_PASSWORD=pass -d mysql:5.6
+
+Segundo Comando, criação do "PHPMYADMIN"
+
+#docker run --name myadmin --restart:always -d -e PMA_HOST=mysql -v /etc/localtime:/etc/localtime:ro -p 8080:80
+phpmyadmin/phpmyadmin:4.7.0-1
+
+Terceiro Comando, gerando backup
+
+#docker exec mysql sh -c 'exec mysqldump --all-databases -uroot -p"$MYSQL_ROOT_PASSWORD"' > /home/all-databases.sql
+
+
