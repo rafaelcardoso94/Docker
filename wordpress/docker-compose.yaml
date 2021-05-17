@@ -1,0 +1,33 @@
+services:
+  mysql:
+    image: mysql:5.6
+    networks:
+      - rede_wp
+    volumes:
+      - ./home/custom:/etc/mysql/conf.d
+      - ./home/data:/var/lib/mysql
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - MYSQL_ROOT_PASSWORD=pass
+      - MYSQL_DATABASE=wordpress
+    restart: always
+
+  wordpress:
+    image: wordpress:4.7-php5.6
+    restart: always
+    networks:
+      - rede_wp
+    ports:
+      - 80:80
+    environment:
+      - WORDPRESS_DB_HOST=mysql
+      - WORDPRESS_DB_USER=root
+      - WORDPRESS_DB_PASSWORD=pass
+      - WORDPRESS_DB_NAME=wordpress     
+    volumes:
+      - ./wordpress:/var/www/html
+      - ./wordpress/conf.d/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+      - /etc/localtime:/etc/localtime:ro
+networks:
+  rede_wp:
+    driver: bridge
