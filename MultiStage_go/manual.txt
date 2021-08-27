@@ -1,0 +1,10 @@
+(Manual MultiStage em GO) 
+
+#Execute o comando para buildar a imagem, lembrando de taguear 
+docker image build -t multistage-go:v1 .
+
+#Execute o comando para criação do container
+docker container run -ti multistage-go:v1
+
+#Resultado:
+Giropops Strigus Girus
