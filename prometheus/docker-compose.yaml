@@ -9,7 +9,6 @@ services:
       - 9090:9090
     networks:
       - rede_wp
-	  
 networks:
   rede_wp:
     driver: bridge
