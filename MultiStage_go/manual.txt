@@ -1,4 +1,4 @@
-(Manual MultiStage em GO) 
+(Manual MultiStage em GO) ##versão 01
 
 #Execute o comando para buildar a imagem, lembrando de taguear 
 docker image build -t multistage-go:v1 .
