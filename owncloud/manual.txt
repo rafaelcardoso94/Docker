@@ -1,0 +1,12 @@
+(Manual Container: Owncloud)
+
+#Criar os diretorios para volume
+mkdir -p home/custom
+mkdir -p home/data
+mkdir apps && mkdir config && mkdir data
+
+#Execute o comando para buildar a imagem, lembrando de taguear 
+$docker-compose up -d
+
+#Resultado:
+Acesse WEB: localhost:80
