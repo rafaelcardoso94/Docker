@@ -1,0 +1,15 @@
+services:
+  prometheus:
+    image: prom/prometheus
+    networks:
+      - rede_wp
+    volumes:
+      - /tmp/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+    networks:
+      - rede_wp
+	  
+networks:
+  rede_wp:
+    driver: bridge
