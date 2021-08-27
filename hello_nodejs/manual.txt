@@ -1,0 +1,11 @@
+(Manual Container em NODE JS) 
+
+#Execute o comando para buildar a imagem, lembrando de taguear 
+$docker image build -t hello-nodejs:v1 .
+
+#Execute o comando para criação do container
+$docker container run -d -p 8080:8080 --name hello-nodejs hello-nodejs:v1
+
+#Resultado:
+$curl localhost:8080
+Hello World
